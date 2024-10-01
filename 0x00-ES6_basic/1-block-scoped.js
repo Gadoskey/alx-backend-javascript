@@ -1,17 +1,11 @@
 export default function taskBlock(trueOrFalse) {
-  const task = false; // Original value
-  const task2 = true; // Original value
-
-  let innerTask; // Declare variables with let
-  let innerTask2;
+  const task = false;
+  const task2 = true;
 
   if (trueOrFalse) {
-    innerTask = true; // Update only the inner variables
-    innerTask2 = false;
-  } else {
-    innerTask = task; // Keep original task
-    innerTask2 = task2; // Keep original task2
+    const task = true; // eslint-disable-line no-unused-vars
+    const task2 = false; // eslint-disable-line no-unused-vars
   }
 
-  return [innerTask, innerTask2]; // Return the inner variables
+  return [task, task2];
 }
