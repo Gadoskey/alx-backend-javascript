@@ -6,7 +6,7 @@ Yusuf Mustapha Opeyemi [mustopha.yusufope@gmail.com]
 
 **Overview**
 
-Welcome to the alx-backend-javascript repository! This repository contains projects focused on the backend aspects of JavaScript, specifically utilizing ES6+ features. The goal is to improve my JavaScript programming skills, especially for backend development, by working on modules that cover various modern JavaScript functionalities.
+Welcome to the alx-backend-javascript repository! This repository contains projects focused on the backend aspects of JavaScript, specifically utilizing ES6+ features. The goal is to improve your JavaScript programming skills, especially for backend development, by working on modules that cover various modern JavaScript functionalities.
 
 **Repository Structure**
 
