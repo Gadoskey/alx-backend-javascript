@@ -1,4 +1,4 @@
-# **ALX Backend JavaScript**
+# **ALX-BACKEND-JAVASCRIPT**
 
 **Author**
 
@@ -6,7 +6,7 @@ Yusuf Mustapha Opeyemi [mustopha.yusufope@gmail.com]
 
 **Overview**
 
-Welcome to the alx-backend-javascript repository! This repository contains projects focused on the backend aspects of JavaScript, specifically utilizing ES6+ features. The goal is to improve your JavaScript programming skills, especially for backend development, by working on modules that cover various modern JavaScript functionalities.
+Welcome to the alx-backend-javascript repository! This repository contains projects focused on the backend aspects of JavaScript, specifically utilizing ES6+ features. The goal is to improve my JavaScript programming skills, especially for backend development, by working on modules that cover various modern JavaScript functionalities.
 
 **Repository Structure**
 
@@ -42,9 +42,9 @@ This directory dives deep into Promises—one of the most powerful features intr
   Chaining promises
   - Error handling in promises
   - Example Projects:
-      Implementing a basic promise and chaining multiple .then() calls.
-      Refactoring callback-based code to use promises.
-      Handling asynchronous operations using async and await.
+      - Implementing a basic promise and chaining multiple .then() calls.
+      - Refactoring callback-based code to use promises.
+      - Handling asynchronous operations using async and await.
 
 
 **3. 0x00-ES6_classes**
@@ -65,7 +65,7 @@ This directory focuses on Classes in ES6, which provide a clearer, more concise 
 
 **Getting Started**
 
-***Prerequisites***
+*Prerequisites*
 
 To run the scripts and projects within this repository, you'll need:
 
