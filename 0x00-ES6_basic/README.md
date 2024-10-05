@@ -91,9 +91,8 @@ This project is structured around multiple files, each containing a different ES
 
   - File: 12-createReportObject.js
   - Write a function named createReportObject that takes employeesList as its parameter. This employeesList should be the return value of the createEmployeesObject function. The function should return an object with two properties:
-
-  allEmployees: An object containing the department name as keys and lists of employees as values.
-  getNumberOfDepartments: A method that returns the number of departments in the employeesList.
+    - allEmployees: An object containing the department name as keys and lists of employees as values.
+    - getNumberOfDepartments: A method that returns the number of departments in the employeesList.
 
 
 13. Iterating Through Report Objects
