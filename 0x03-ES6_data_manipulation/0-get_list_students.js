@@ -1,4 +1,4 @@
-export function getListStudents(id, firstName, location) {
+export default function getListStudents(id, firstName, location) {
   studentList = [
     {
       id: 1,
