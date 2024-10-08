@@ -1,5 +1,5 @@
-export default function getListStudents(id, firstName, location) {
-  studentList = [
+export default function getListStudents() {
+  const studentList = [
     {
       id: 1,
       firstName: "Guillame",
