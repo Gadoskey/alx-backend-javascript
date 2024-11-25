@@ -1,5 +1,6 @@
 /**
  * A weak map of endpoints and the number of calls made.
+ * @author Gadoskey
  */
 export const weakMap = new WeakMap();
 
