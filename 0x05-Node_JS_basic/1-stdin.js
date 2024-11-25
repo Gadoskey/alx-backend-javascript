@@ -11,7 +11,7 @@ process.stdout.write(message + "\n");
 process.stdin.on("readable", function () {
   const input = process.stdin.read();
   if (input !== null) {
-    process.stdout.write("Your name is :" + input);
+    process.stdout.write("Your name is: " + input);
   }
 });
 
