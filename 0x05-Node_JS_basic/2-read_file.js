@@ -6,7 +6,7 @@
  */
 const fs = require("fs");
 
-module.exports = function countStudents(path) {
+function countStudents(path) {
   try {
     // Attempt to read the file synchronously
     const data = fs.readFileSync(path, "utf8");
@@ -51,4 +51,6 @@ module.exports = function countStudents(path) {
     // If an error occurs, throw the required error message
     throw new Error("Cannot load the database");
   }
-};
+}
+
+module.exports = countStudents;
