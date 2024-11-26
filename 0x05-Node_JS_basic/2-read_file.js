@@ -8,38 +8,41 @@ const fs = require("fs");
 
 function countStudents(path) {
   try {
-    // Attempt to read the file synchronously
+    // Read the file synchronously
     const data = fs.readFileSync(path, "utf8");
 
-    // Split the data by line and filter out empty lines
+    // Split the file content into lines and filter out empty lines
     const lines = data.split("\n").filter((line) => line.trim() !== "");
 
-    // Remove the header line (first line of the CSV)
+    // Remove the header (first line)
     const [header, ...students] = lines;
 
-    // Initialize an object to keep track of students per field
+    // Initialize a map to store students by field
     const studentsByField = {};
 
-    // Iterate through each student record
+    // Process each student's line
     students.forEach((line) => {
-      const [field, firstName] = line.split(",");
+      const [firstname, lastname, age, field] = line.split(",");
 
-      // If the field doesn't exist in the object, initialize it
+      // Skip lines that are malformed or incomplete
+      if (!firstname || !field) return;
+
+      // Initialize the field if not already present
       if (!studentsByField[field]) {
         studentsByField[field] = [];
       }
 
-      // Add the student's name to the corresponding field's array
-      studentsByField[field].push(firstName);
+      // Add the student's first name to the appropriate field group
+      studentsByField[field].push(firstname);
     });
 
-    // Count the total number of students
+    // Calculate total number of students
     const totalStudents = students.length;
 
     // Log the total number of students
     console.log(`Number of students: ${totalStudents}`);
 
-    // Log the number of students and their names for each field
+    // Log the count and names for each field
     for (const [field, names] of Object.entries(studentsByField)) {
       console.log(
         `Number of students in ${field}: ${names.length}. List: ${names.join(
@@ -47,8 +50,8 @@ function countStudents(path) {
         )}`
       );
     }
-  } catch (err) {
-    // If an error occurs, throw the required error message
+  } catch (error) {
+    // Throw an error with the required message if file reading fails
     throw new Error("Cannot load the database");
   }
 }
