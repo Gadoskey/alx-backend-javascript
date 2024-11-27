@@ -12,7 +12,7 @@ process.stdin.on(
     
     if (input !== null) {
       process.stdout.write(
-        `Your name is: ${input}\n`
+        `Your name is: ${input}`
       );
     }
   }
