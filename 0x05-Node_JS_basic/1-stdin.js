@@ -9,7 +9,7 @@ process.stdin.on("readable", () => {
   const input = process.stdin.read();
 
   if (input !== null) {
-    process.stdout.write(`Your name is: ${input}\n`);
+    process.stdout.write(`Your name is: ${input}`);
   }
 });
 
