@@ -1,59 +1,38 @@
 /**
- * function countStudents:
- * Logs the number of students in each field
- * @param {string} path - The path to the file
+ * Reads a CSV file and counts the students per field.
  * @author Gadoskey
+ * @param {string} path - The path to the CSV file.
+ * @throws Will throw an error if the file cannot be read.
  */
-const fs = require("fs");
-
-function countStudents(path) {
+const countStudents = async (path) => {
   try {
-    // Read the file synchronously
-    const data = fs.readFileSync(path, "utf8");
-
-    // Split the file content into lines and filter out empty lines
+    const data = await fs.readFile(path, "utf8");
     const lines = data.split("\n").filter((line) => line.trim() !== "");
 
-    // Remove the header (first line)
-    const [header, ...students] = lines;
+    const students = [];
+    const fields = {};
 
-    // Initialize a map to store students by field
-    const studentsByField = {};
-
-    // Process each student's line
-    students.forEach((line) => {
-      const [firstname, lastname, age, field] = line.split(",");
-
-      // Skip lines that are malformed or incomplete
-      if (!firstname || !field) return;
-
-      // Initialize the field if not already present
-      if (!studentsByField[field]) {
-        studentsByField[field] = [];
+    for (let i = 1; i < lines.length; i += 1) {
+      // Skip the header
+      const [firstname, lastname, age, field] = lines[i].split(",");
+      if (firstname && field) {
+        students.push({ firstname, lastname, age, field });
+        if (!fields[field]) fields[field] = [];
+        fields[field].push(firstname);
       }
-
-      // Add the student's first name to the appropriate field group
-      studentsByField[field].push(firstname);
-    });
-
-    // Calculate total number of students
-    const totalStudents = students.length;
-
-    // Log the total number of students
-    console.log(`Number of students: ${totalStudents}`);
-
-    // Log the count and names for each field
-    for (const [field, names] of Object.entries(studentsByField)) {
-      console.log(
-        `Number of students in ${field}: ${names.length}. List: ${names.join(
-          ", "
-        )}`
-      );
     }
+
+    console.log(`Number of students: ${students.length}`);
+    Object.keys(fields).forEach((field) => {
+      console.log(
+        `Number of students in ${field}: ${
+          fields[field].length
+        }. List: ${fields[field].join(", ")}`
+      );
+    });
   } catch (error) {
-    // Throw an error with the required message if file reading fails
     throw new Error("Cannot load the database");
   }
-}
+};
 
 module.exports = countStudents;
