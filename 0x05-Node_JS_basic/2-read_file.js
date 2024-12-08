@@ -1,6 +1,6 @@
 /**
  * Counts the students in a CSV data file.
- * @param {String} dataPath The path to the CSV data file.
+ * @param {String} path The path to the CSV data file.
  * @author Gadoskey
  */
 const fs = require('fs');
