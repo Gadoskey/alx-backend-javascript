@@ -1,26 +1,21 @@
 /**
- * Counts the students in a CSV data file.
- * @param {String} path The path to the CSV data file.
+ * Counts students from a CSV file and logs the results.
+ * @param {string} path - Path to the CSV file.
  * @author Gadoskey
  */
+
 const fs = require("fs");
 
-function countStudents(path) {
+const countStudents = (path) => {
   try {
     // Read the file synchronously
-    const data = fs.readFileSync(
-path,
-"utf8"
-),
-
-    // Split the file content into lines and filter out empty lines
-     lines = data.split("\n").filter((line) => line.trim() !== ""),
-
-    // Remove the header (first line)
-     [, ...students] = lines,
-
-    // Initialize a map to store students by field
-     studentsByField = {};
+    const data = fs.readFileSync(path, "utf8"),
+      // Split the file content into lines and filter out empty lines
+      lines = data.split("\n").filter((line) => line.trim() !== ""),
+      // Remove the header (first line)
+      [, ...students] = lines,
+      // Initialize a map to store students by field
+      studentsByField = {};
 
     // Process each student's line
     students.forEach((line) => {
@@ -28,8 +23,8 @@ path,
 
       // Skip lines that are malformed or incomplete
       if (!firstname || !field) {
- return;
-}
+        return;
+      }
 
       // Initialize the field if not already present
       if (!studentsByField[field]) {
@@ -47,16 +42,17 @@ path,
     console.log(`Number of students: ${totalStudents}`);
 
     // Log the count and names for each field
-    for (const [
-field,
-names
-] of Object.entries(studentsByField)) {
-      console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(", ")}`);
+    for (const [field, names] of Object.entries(studentsByField)) {
+      console.log(
+        `Number of students in ${field}: ${names.length}. List: ${names.join(
+          ", "
+        )}`
+      );
     }
   } catch (error) {
     // Throw an error with the required message if file reading fails
     throw new Error("Cannot load the database");
   }
-}
+};
 
 module.exports = countStudents;
